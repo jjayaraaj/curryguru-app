@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-icon slot="end" name="close" (click)="dismiss()"></ion-icon>
+    <ion-label>
+      <h2>Curry Guru Hawaii</h2>
+      <p>Spice Guru.</p>
+    </ion-label>
+  </ion-item>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <ion-img src="https://via.placeholder.com/400x300" style="width: 100%;"></ion-img>
+  </div>
+  <ion-item>
+    <ion-label>
+      {{ selectedProduct.name }}
+      <p [innerHtml]="selectedProduct.price_html"></p>
+      <div>
+        <ion-chip *ngFor="let categorie of selectedProduct.categories">
+          <ion-label><small>{{ categorie.name }}</small></ion-label>
+        </ion-chip>
+      </div>
+      <small>
+        <ion-icon name="star"></ion-icon> {{selectedProduct.average_rating}}
+      </small>
+    </ion-label>
+
+    <ion-button color="" size="default" style=" --background:#f15f2a; color: #fff;" slot="end">
+      ADD
+    </ion-button>
+  </ion-item>
+
+  <div class="">
+    <ion-list style="--background: #fff;">
+      <ion-item style="background-color: #fff;" *ngFor="let related of selectedProduct.related_ids">
+        <ion-thumbnail slot="start">
+
+          <img [src]="" class="pro-img">
+        </ion-thumbnail>
+        <ion-label>
+          <h4><strong>{{related}}</strong></h4>
+
+          <p><small>
+              <ion-icon name="star"></ion-icon>
+            </small></p>
+        </ion-label>
+
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>
