@@ -1,3 +1,89 @@
-<ion-content>
+<ion-content class="ion-no-padding">
+    <div *ngIf="loggedIn; else login;">
+        <ion-item lines="full">
+            <ion-label>
+                <h2>{{ user.username | uppercase}}</h2>
+                <p>Email Id</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" color="curry">Edit</ion-button>
+        </ion-item>
+        <ion-list lines="none">
+            <ion-item detail>
+                <ion-label>Personal Details</ion-label>
+            </ion-item>
+            <ion-item detail>
+                <ion-label>Billing Address</ion-label>
+            </ion-item>
+            <ion-item detail>
+                <ion-label>Shipping Address</ion-label>
+            </ion-item>
 
+        </ion-list>
+
+        <p class="ion-padding-start"><small>PAST ORDERS</small></p>
+
+        <ion-card class=" ion-no-margin" style="box-shadow: none;">
+            <ion-list lines="inset" class="">
+                <ion-item>
+                    <ion-label>
+                        <h6>Item Name</h6>
+                        <p><small>Category</small></p>
+                        <p>12$</p>
+
+                    </ion-label>
+
+                    <ion-button color="curry" slot="end" fill="outline">REORDER</ion-button>
+
+
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                        <h6>Item Name</h6>
+                        <p><small>Category</small></p>
+                        <p>12$</p>
+
+                    </ion-label>
+
+                    <ion-button color="curry" slot="end" fill="outline">REORDER</ion-button>
+
+
+                </ion-item>
+            </ion-list>
+            <div style="height: 10px;"></div>
+
+        </ion-card>
+        <div style="height: 10px;"></div>
+        <ion-item lines="none">
+            <ion-label>
+                LOGOUT
+            </ion-label>
+
+            <ion-icon name="power-outline" slot="end" (click)="onClickLogout()"></ion-icon>
+
+        </ion-item>
+    </div>
+    <ng-template #login>
+        <div style="height: 35%;"></div>
+        <ion-card class="ion-padding ion-no-margin" style="box-shadow: none;">
+            <h4>ACCOUNT</h4>
+            <p>Login/Create Account to quicky manage order</p>
+            <ion-list class="ion-no-padding">
+                <ion-item>
+                    <ion-label position="floating">Username</ion-label>
+                    <ion-input type="text" [(ngModel)]="username"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">password</ion-label>
+                    <ion-input type="password" [(ngModel)]="password"></ion-input>
+                </ion-item>
+
+
+            </ion-list>
+            <div class="ion-padding-top">
+                <ion-button color="curry" size="block" (click)="signIn()">Sign In</ion-button>
+            </div>
+        </ion-card>
+    </ng-template>
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-curry-guru',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurryGuruPage implements OnInit {
 
-  constructor() { }
+  cartCount$: Observable<number>;
+
+  constructor(
+    private _productSer: ProductService
+  ) { }
 
   ngOnInit() {
+    this._productSer.cartCount();
+    this.cartCount$ = this._productSer.getCartCount();
   }
 
 }

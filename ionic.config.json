@@ -1,5 +1,7 @@
 {
   "name": "rest-menu",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

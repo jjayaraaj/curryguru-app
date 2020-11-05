@@ -1,0 +1,181 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-avatar slot="end">
+      <img src="assets/curu-guru.png">
+    </ion-avatar>
+
+    <ion-label>
+      <h2>Curry Guru Hawaii</h2>
+      <p>Spice Guru.</p>
+    </ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-padding">
+    <h2>Personal Details</h2>
+
+
+
+  </div>
+
+  <ion-list class="ion-no-padding">
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.first_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.last_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" #email [(ngModel)]="newOrder.email" (ionBlur)="checkEmail();"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">username</ion-label>
+      <ion-input type="username" [(ngModel)]="newOrder.username"></ion-input>
+    </ion-item>
+
+
+
+  </ion-list>
+
+
+  <div class="ion-padding">
+    <h2>Billing Detials</h2>
+
+
+
+  </div>
+
+  <ion-list class="ion-no-padding">
+    <ion-item>
+      <ion-label position="floating">Address Line 1</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newOrder.billing_address.address_1"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Address Line 2</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newOrder.billing_address.address_2"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Country</ion-label>
+      <ion-select [(ngModel)]="newOrder.billing_address.country" (ionChange)="onSelectCountry($event)">
+
+        <ion-select-option [value]="countrie.country" *ngFor="let countrie of countries">{{ countrie.country }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">State</ion-label>
+      <ion-select [(ngModel)]="newOrder.billing_address.state">
+
+        <ion-select-option [value]="state" *ngFor="let state of states">{{ state }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">City</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.billing_address.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Postcode</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.billing_address.postcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.billing_address.phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Same shiping details</ion-label>
+      <ion-checkbox (ionChange)="setBillingtoSHipping()"></ion-checkbox>
+    </ion-item>
+
+
+  </ion-list>
+
+
+  <div class="ion-padding" *ngIf="!billing_shipping_same">
+    <h2>Shipping Detials</h2>
+
+
+
+  </div>
+
+  <ion-list class="ion-no-padding" *ngIf="!billing_shipping_same">
+    <ion-item>
+      <ion-label position="floating">Address Line 1</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newOrder.shipping_address.address_1"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Address Line 2</ion-label>
+      <ion-textarea type="text" maxlength="80" [(ngModel)]="newOrder.shipping_address.address_2"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Country</ion-label>
+      <ion-select [(ngModel)]="newOrder.shipping_address.country" (ionChange)="onSelectCountry($event)">
+
+        <ion-select-option [value]="countrie.country" *ngFor="let countrie of countries">{{ countrie.country }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">State</ion-label>
+      <ion-select [(ngModel)]="newOrder.shipping_address.state">
+
+        <ion-select-option [value]="state" *ngFor="let state of states">{{ state }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">City</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.shipping_address.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Postcode</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.shipping_address.postcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="newOrder.shipping_address.phone"></ion-input>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <ion-item>
+    <ion-label> Payment Details</ion-label>
+    <ion-select [(ngModel)]="paymentMethod">
+      <ion-select-option *ngFor="let p of paymentMethods" value="{{p.payment_method}}">{{ p.payment_method_title }}
+      </ion-select-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-button color="danger" size="block" (click)="order()">Sign Up</ion-button>
+
+
+
+
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>

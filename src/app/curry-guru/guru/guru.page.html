@@ -1,8 +1,21 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-avatar slot="end">
+      <img src="assets/curu-guru.png">
+    </ion-avatar>
+    <ion-label>
+      <h2>Curry Guru Hawaii</h2>
+      <p>Spice Guru.</p>
+    </ion-label>
+  </ion-item>
+</ion-header>
+
+
 <ion-content [fullscreen]="true">
 
   <div class="ion-padding wrapper">
 
-    <ion-searchbar></ion-searchbar>
+    <!-- <ion-searchbar [(ngModel)]='searchQuery' (ionInput)="onSearch($event)" (search)="onSearch($event)"></ion-searchbar> -->
 
     <ion-grid class="ion-no-padding">
       <ion-row class="ion-align-items-baseline">
@@ -81,7 +94,7 @@
       <ion-col size="12">
         <ion-slides [options]="categories">
 
-          <ion-slide *ngFor="let category of productCategories">
+          <ion-slide *ngFor="let category of productCategories" (click)="onClickCategory(category)">
             <ion-card class="category" color="" style="background-color:transparent;">
               <ion-card-header class="ion-text-center" style="background-color: #fff;">
                 <ion-img style="height: 40px; " [src]=" category.image.src">
@@ -204,6 +217,8 @@
               <ion-icon name="star"></ion-icon> {{product.average_rating}}
             </small></p>
         </ion-label>
+
+
 
       </ion-item>
 

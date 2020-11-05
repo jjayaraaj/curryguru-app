@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'https://www.curryguruhawaii.com/wp-json/wc/v3/',
   ck: 'ck_5fa32efb534c5c0c64e3793ceb364f9c84d86a3a',
-  cs: 'cs_1d06dfde233ec2d0b815ee4a062511fc5da0b1e2'
+  cs: 'cs_1d06dfde233ec2d0b815ee4a062511fc5da0b1e2',
+  jsonApiUrl: 'https://www.curryguruhawaii.com/api/auth/'
 };
 
 /*

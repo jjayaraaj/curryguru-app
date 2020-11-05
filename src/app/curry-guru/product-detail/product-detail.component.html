@@ -9,12 +9,16 @@
 </ion-header>
 <ion-content class="ion-padding">
   <div>
-    <ion-img src="https://via.placeholder.com/400x300" style="width: 100%;"></ion-img>
+    <ion-slides>
+      <ion-slide *ngFor="let productImage of selectedProduct.images">
+        <ion-img [src]="productImage.src"></ion-img>
+      </ion-slide>
+    </ion-slides>
   </div>
-  <ion-item>
+  <ion-item class="item-text-wrap">
     <ion-label>
       {{ selectedProduct.name }}
-      <p [innerHtml]="selectedProduct.price_html"></p>
+      <h3 [innerHtml]="selectedProduct.price_html"></h3>
       <div>
         <ion-chip *ngFor="let categorie of selectedProduct.categories">
           <ion-label><small>{{ categorie.name }}</small></ion-label>
@@ -25,10 +29,15 @@
       </small>
     </ion-label>
 
-    <ion-button color="" size="default" style=" --background:#f15f2a; color: #fff;" slot="end">
-      ADD
+    <ion-button color="" size="default" style=" --background:#f15f2a; color: #fff;" slot="end"
+      (click)="onClickAdd(selectedProduct)">
+      ADD <ion-icon name="cart"></ion-icon>
     </ion-button>
   </ion-item>
+
+  <ion-text>
+    <p [innerHTML]="selectedProduct.description"></p>
+  </ion-text>
 
   <div class="">
     <ion-list style="--background: #fff;">

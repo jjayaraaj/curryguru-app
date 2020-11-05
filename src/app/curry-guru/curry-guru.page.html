@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<!-- <ion-header class="ion-no-border">
   <ion-item lines="none">
     <ion-avatar slot="end">
       <img src="assets/curu-guru.png">
@@ -8,7 +8,7 @@
       <p>Spice Guru.</p>
     </ion-label>
   </ion-item>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
   <ion-tabs>
@@ -25,6 +25,7 @@
       <ion-tab-button tab="cart">
         <ion-icon name="cart-outline"></ion-icon>
         <ion-label>Cart</ion-label>
+        <ion-badge color="curry">{{ cartCount$ | async }}</ion-badge>
       </ion-tab-button>
       <ion-tab-button tab="account">
         <ion-icon name="person-outline"></ion-icon>

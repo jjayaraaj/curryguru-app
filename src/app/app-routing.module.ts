@@ -15,6 +15,22 @@ const routes: Routes = [
     path: 'curry-guru',
     loadChildren: () => import('./curry-guru/curry-guru.module').then( m => m.CurryGuruPageModule)
   },
+  {
+    path: 'product-list/:id',
+    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
 ];
 
 @NgModule({
